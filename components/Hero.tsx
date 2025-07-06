@@ -1,51 +1,32 @@
-import Link from 'next/link'
+"use client";
+
+import { BackgroundGradientAnimation } from "./ui/BackgroundGradientAnimation";
+import { motion } from "framer-motion";
 
 export default function Hero() {
+  const scrollToSection = () => {
+    const section = document.getElementById("what-i-do");
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <section className="relative bg-gradient-to-r from-primary-600 to-primary-800 text-white">
-      <div className="absolute inset-0 bg-black opacity-20"></div>
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Share Your
-            <span className="block text-primary-200">Amazing Stories</span>
+    <section className="relative h-screen w-full flex flex-col items-center justify-center text-center px-6">
+      <BackgroundGradientAnimation>
+        <div className="relative z-10 flex flex-col items-center justify-center h-full">
+          <h1 className="text-4xl sm:text-6xl font-bold">
+            I build things that solve problems, waste time, or both.
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-primary-100">
-            Connect with creators, discover innovative projects, and inspire others with your journey. 
-            Join our community of storytellers and innovators.
+          <p className="text-lg text-gray-600 mt-4 max-w-xl">
+            Here's some of it. Scroll down if you're curious. Or bored. Either works.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/stories"
-              className="bg-white text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200"
-            >
-              Explore Stories
-            </Link>
-            <Link 
-              href="/about"
-              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-colors duration-200"
-            >
-              Learn More
-            </Link>
-          </div>
+          <button
+            onClick={scrollToSection}
+            className="mt-6 px-6 py-2 border border-black rounded-full hover:bg-black hover:text-white transition"
+          >
+            Show me what you do
+          </button>
         </div>
-        
-        {/* Stats */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div>
-            <div className="text-3xl font-bold text-primary-200">500+</div>
-            <div className="text-primary-100">Stories Shared</div>
-          </div>
-          <div>
-            <div className="text-3xl font-bold text-primary-200">10K+</div>
-            <div className="text-primary-100">Active Users</div>
-          </div>
-          <div>
-            <div className="text-3xl font-bold text-primary-200">50+</div>
-            <div className="text-primary-100">Countries</div>
-          </div>
-        </div>
-      </div>
+      </BackgroundGradientAnimation>
     </section>
-  )
+  );
 } 
