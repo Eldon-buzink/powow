@@ -9,6 +9,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import confetti from "canvas-confetti";
 import { ColourfulText } from "@/components/ui/ColourfulText";
 import { BackgroundLines } from "@/components/ui/BackgroundLines";
+import { BackgroundGradientAnimation } from "@/components/ui/BackgroundGradientAnimation";
 
 const projects = [
   {
@@ -87,47 +88,49 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center w-full overflow-x-hidden bg-white">
       {/* HERO SECTION */}
-      <section className="w-full flex flex-col items-center justify-center py-16 md:py-24 px-6 bg-gradient-to-b from-white via-pink-50 to-white">
-        <div className="flex flex-col items-center max-w-2xl mx-auto text-center space-y-6">
-          <img src="/images/1604824879858.jpeg" alt="Your avatar" className="w-32 h-32 rounded-full border-4 border-pink-200 shadow-lg object-cover mb-2" />
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2">
-            Hey, I'm <ColourfulText text="Eldon" />!
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 mb-2">
-            I build digital things for fun, for work, and sometimes just to see what happens. If you want to collaborate, chat, or send me a meme, hit me up!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
-            <button
-              onClick={handleConfettiAndScroll}
-              className="px-8 py-3 rounded-full border-2 border-pink-400 bg-white hover:bg-pink-100 hover:border-pink-500 text-pink-600 font-semibold shadow transition focus:outline-none focus:ring-2 focus:ring-pink-300"
-            >
-              Get to know me
-            </button>
-            <a
-              href="mailto:you@example.com"
-              className="px-8 py-3 rounded-full border-2 border-blue-400 bg-white hover:bg-blue-100 hover:border-blue-500 text-blue-600 font-semibold shadow transition focus:outline-none focus:ring-2 focus:ring-blue-300"
-            >
-              Let's talk
-            </a>
+      <BackgroundGradientAnimation fadeToWhite>
+        <section className="w-full flex flex-col items-center justify-center py-16 md:py-24 px-6 bg-transparent">
+          <div className="flex flex-col items-center max-w-2xl mx-auto text-center space-y-6">
+            <img src="/images/1604824879858.jpeg" alt="Your avatar" className="w-32 h-32 rounded-full border-4 border-pink-200 shadow-lg object-cover mb-2" />
+            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2">
+              Hey, I'm <ColourfulText text="Eldon" />!
+            </h1>
+            <p className="text-lg md:text-xl text-gray-600 mb-2">
+              I build digital things for fun, for work, and sometimes just to see what happens. If you want to collaborate, chat, or send me a meme, hit me up!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
+              <button
+                onClick={handleConfettiAndScroll}
+                className="px-8 py-3 rounded-full border-2 border-pink-400 bg-white hover:bg-pink-100 hover:border-pink-500 text-pink-600 font-semibold shadow transition focus:outline-none focus:ring-2 focus:ring-pink-300"
+              >
+                Get to know me
+              </button>
+              <a
+                href="mailto:you@example.com"
+                className="px-8 py-3 rounded-full border-2 border-blue-400 bg-white hover:bg-blue-100 hover:border-blue-500 text-blue-600 font-semibold shadow transition focus:outline-none focus:ring-2 focus:ring-blue-300"
+              >
+                Let's talk
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </BackgroundGradientAnimation>
 
       {/* WHO AM I SECTION */}
       <div ref={whoAmIRef} className="w-full flex justify-center">
-        <div className="w-full max-w-5xl mx-auto my-16 rounded-3xl px-2 sm:px-4">
+        <div className="w-full max-w-5xl mx-auto my-6 sm:my-12 rounded-3xl px-4">
           <WhoAmI />
         </div>
       </div>
 
       {/* WHAT I DO SECTION */}
       <div ref={whatIDoRef} className="w-full flex justify-center">
-        <div className="w-full max-w-5xl mx-auto my-16 rounded-3xl px-2 sm:px-4">
-          <section className="w-full py-16 px-0 sm:px-6">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 text-gray-900">
+        <div className="w-full max-w-5xl mx-auto my-6 sm:my-12 rounded-3xl px-4">
+          <section className="w-full py-10 sm:py-16 px-0 sm:px-6">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-center mb-6 sm:mb-8 text-gray-900">
               What I Do
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid-rows-3 gap-6 bento-grid">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 sm:gap-8 bento-grid">
               {bentoCards.map((card, i) => (
                 <motion.div
                   key={card.title}
@@ -148,7 +151,7 @@ export default function Home() {
       </div>
 
       {/* PROJECTS SECTION */}
-      <section className="w-full max-w-6xl py-24 px-6">
+      <section className="w-full max-w-5xl mx-auto py-10 sm:py-16 px-4">
         <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 text-gray-900">
           Stuff I Built So Far
         </h2>
@@ -173,8 +176,8 @@ export default function Home() {
                 <p className="text-gray-600 text-lg mb-2">{project.description}</p>
               </div>
               {/* Right: Image placeholder */}
-              <div className="flex-1 flex items-center justify-center bg-gray-50 p-4 min-h-[180px] relative">
-                <img src={project.image} alt={project.title + ' demo'} className="rounded-xl w-full h-40 object-contain shadow" />
+              <div className="flex-1 flex items-center justify-center bg-gray-50 p-4 w-full h-40 sm:h-48 relative">
+                <img src={project.image} alt={project.title + ' demo'} className="rounded-xl w-full h-full object-cover shadow" />
                 {project.comingSoon ? (
                   <span className="absolute top-2 left-2 bg-yellow-200 text-yellow-700 text-xs px-2 py-0.5 rounded-full shadow animate-pulse">Soon</span>
                 ) : (
