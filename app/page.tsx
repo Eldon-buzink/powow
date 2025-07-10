@@ -10,6 +10,7 @@ import confetti from "canvas-confetti";
 import { ColourfulText } from "@/components/ui/ColourfulText";
 import { BackgroundLines } from "@/components/ui/BackgroundLines";
 import { BackgroundGradientAnimation } from "@/components/ui/BackgroundGradientAnimation";
+import WhatIDo from "@/components/WhatIDo";
 
 const projects = [
   {
@@ -32,37 +33,6 @@ const projects = [
     description: "A new project is brewing... Stay tuned!",
     image: "/images/project1.jpg",
     comingSoon: true,
-  },
-];
-
-const bentoCards = [
-  {
-    title: "Product Management",
-    emoji: "🧠",
-    color: "from-pink-100 to-pink-50",
-    size: "row-span-2 col-span-2",
-    desc: "Turning chaos into features people love."
-  },
-  {
-    title: "CRO",
-    emoji: "📈",
-    color: "from-purple-100 to-purple-50",
-    size: "row-span-1 col-span-1",
-    desc: "Making more people click the button."
-  },
-  {
-    title: "Online Marketing",
-    emoji: "💻",
-    color: "from-blue-100 to-blue-50",
-    size: "row-span-1 col-span-1",
-    desc: "Getting the word out, one meme at a time."
-  },
-  {
-    title: "Breaking & fixing things",
-    emoji: "🔧",
-    color: "from-yellow-100 to-yellow-50",
-    size: "row-span-1 col-span-2",
-    desc: "If it ain't broke, I probably haven't touched it yet."
   },
 ];
 
@@ -126,27 +96,7 @@ export default function Home() {
       {/* WHAT I DO SECTION */}
       <div ref={whatIDoRef} className="w-full flex justify-center">
         <div className="w-full max-w-5xl mx-auto my-6 sm:my-12 rounded-3xl px-4">
-          <section className="w-full py-10 sm:py-16 px-0 sm:px-6">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-center mb-6 sm:mb-8 text-gray-900">
-              What I Do
-            </h2>
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 sm:gap-8 bento-grid">
-              {bentoCards.map((card, i) => (
-                <motion.div
-                  key={card.title}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className={`flex flex-col justify-center items-center p-6 sm:p-8 rounded-3xl shadow-lg bg-gradient-to-br ${card.color} ${card.size} min-h-[140px] md:min-h-[180px]`}
-                >
-                  <span className="text-4xl sm:text-5xl mb-2">{card.emoji}</span>
-                  <h3 className="text-lg sm:text-xl font-bold mb-1 text-gray-800">{card.title}</h3>
-                  <p className="text-gray-600 text-center text-sm sm:text-base md:text-lg">{card.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </section>
+          <WhatIDo />
         </div>
       </div>
 

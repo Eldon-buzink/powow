@@ -39,28 +39,33 @@ export default function WhoAmI() {
         I'm a product builder with a love for fun side projects, digital experiments, and a good story. Here's a bit more about me, the human.
       </p>
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 auto-rows-[220px]">
-        {whoAmICards.map((card, i) => (
-          <div
-            key={card.title}
-            className={`w-full relative rounded-2xl shadow-lg bg-gradient-to-br from-white to-pink-50 overflow-hidden flex flex-col min-h-[220px] border border-gray-100 ${typeof window !== 'undefined' && window.innerWidth < 640 ? '' : card.size}`}
-          >
-            <div className="relative w-full h-24 md:h-32 border-b border-gray-100">
-              <Image
-                src={card.image}
-                alt={card.title}
-                fill
-                className="object-cover object-center"
-                style={{ filter: "brightness(0.95)" }}
-                sizes="(max-width: 768px) 100vw, 33vw"
-                priority={i === 0}
-              />
+        {whoAmICards.map((card, i) => {
+          let smSpan = '';
+          if (card.size === 'col-span-2 row-span-1') smSpan = 'sm:col-span-2 sm:row-span-1';
+          if (card.size === 'col-span-1 row-span-1') smSpan = 'sm:col-span-1 sm:row-span-1';
+          return (
+            <div
+              key={card.title}
+              className={`w-full relative rounded-2xl shadow-lg bg-white overflow-hidden flex flex-col min-h-[220px] border border-gray-100 ${smSpan}`}
+            >
+              <div className="relative w-full h-24 md:h-32 border-b border-gray-100">
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  fill
+                  className="object-cover object-center"
+                  style={{ filter: "brightness(0.95)" }}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  priority={i === 0}
+                />
+              </div>
+              <div className="flex-1 flex flex-col justify-center gap-1 sm:gap-2 p-4 sm:p-6 pt-6 pb-6">
+                <h3 className="text-sm sm:text-base md:text-lg font-bold mb-1 text-gray-800">{card.title}</h3>
+                <p className="text-gray-600 text-xs sm:text-sm md:text-base">{card.desc}</p>
+              </div>
             </div>
-            <div className="flex-1 flex flex-col justify-center gap-1 sm:gap-2 p-4 sm:p-6 pt-6 pb-6">
-              <h3 className="text-sm sm:text-base md:text-lg font-bold mb-1 text-gray-800">{card.title}</h3>
-              <p className="text-gray-600 text-xs sm:text-sm md:text-base">{card.desc}</p>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
