@@ -3,11 +3,11 @@ const nextConfig = {
   images: {
     domains: [
       "images.unsplash.com",
-      "cdn.simpleicons.org"
+      "cdn.simpleicons.org",
+      "media2.giphy.com",
+      "tenor.com",
+      "media.tenor.com",
     ],
-  },
-  experimental: {
-    appDir: true,
   },
 };
 
