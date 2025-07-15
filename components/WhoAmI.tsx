@@ -35,7 +35,7 @@ export default function WhoAmI() {
         <span className="text-2xl sm:text-4xl md:text-5xl">Who am I?</span>
       </h2>
       <p className="text-base sm:text-lg text-gray-600 text-center mb-8 sm:mb-10 max-w-2xl mx-auto">
-        I'm a product builder with a love for fun side projects, digital experiments, and a good story. Here's a bit more about me, the human.
+        I&apos;m a product builder with a love for fun side projects, digital experiments, and a good story. Here&apos;s a bit more about me, the human.
       </p>
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
         {whoAmICards.map((card, i) => {

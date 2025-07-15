@@ -153,12 +153,15 @@ export default function Home() {
       </div>
       <div className="mt-0 mb-12 w-full">
         <LogoCarousel logos={grayscaleLogos.map((src, i) => (
-          <img
+          <Image
             key={src}
             src={src}
             alt={`Company logo ${i + 1}`}
             className="max-h-12 w-auto object-contain"
+            width={120}
+            height={48}
             loading="lazy"
+            unoptimized={src.startsWith('http')}
           />
         ))} />
       </div>
