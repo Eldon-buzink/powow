@@ -40,13 +40,13 @@ export default function Nav() {
           {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-8">
             <Button className="ml-2 border-2 border-blue-500 bg-blue-500 hover:bg-blue-600 text-white font-semibold shadow transition focus:outline-none focus:ring-2 focus:ring-blue-300" onClick={handleLetsTalk} type="button">
-              Let's Talk
+              Let&apos;s Talk
             </Button>
           </div>
           {/* Mobile menu button replaced with CTA */}
           <div className="md:hidden flex items-center">
             <Button className="border-2 border-blue-500 bg-blue-500 hover:bg-blue-600 text-white font-semibold shadow transition focus:outline-none focus:ring-2 focus:ring-blue-300" onClick={handleLetsTalk} type="button">
-              Let's Talk
+              Let&apos;s Talk
             </Button>
           </div>
         </div>

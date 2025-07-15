@@ -1,14 +1,19 @@
 import React from "react";
+import Image from "next/image";
 import { FaEnvelope, FaWhatsapp, FaLinkedin } from "react-icons/fa";
 
 export default function Contact() {
   return (
     <section id="contact" className="relative w-full flex flex-col items-center justify-center px-4 py-16 sm:py-24">
       <div className="relative z-10 w-full max-w-2xl mx-auto bg-white rounded-3xl shadow-xl border border-gray-100 px-6 py-12 flex flex-col items-center">
-        <img
+        <Image
           src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZG94cjFlNGw2c3A1djJhanIzemFpdXB1Z3A3MTNiaW52MDF4YWN1NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT9IgG50Fb7Mi0prBC/giphy.gif"
           alt="Contact avatar"
           className="w-28 h-28 rounded-full border-4 border-pink-200 shadow-lg object-cover mb-4"
+          width={112}
+          height={112}
+          priority
+          unoptimized
         />
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center">Say Hi <span className="inline-block">👋</span></h2>
         <p className="text-base sm:text-lg text-gray-600 text-center mb-8 max-w-xl">

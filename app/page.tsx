@@ -12,6 +12,7 @@ import LogoCarousel from "@/components/LogoCarousel";
 import { Button } from "@/components/ui/stateful-button";
 import Head from 'next/head';
 import WhoAmI from "@/components/WhoAmI";
+import Image from "next/image";
 
 const projects = [
   {
@@ -103,9 +104,16 @@ export default function Home() {
       <BackgroundGradientAnimation fadeToWhite>
         <section className="w-full flex flex-col items-center justify-center py-16 md:py-24 px-6 bg-transparent">
           <div className="flex flex-col items-center max-w-2xl mx-auto text-center space-y-6">
-            <img src="/images/1604824879858.jpeg" alt="Your avatar" className="w-32 h-32 rounded-full border-4 border-pink-200 shadow-lg object-cover mb-2" />
+            <Image
+              src="/images/1604824879858.jpeg"
+              alt="Your avatar"
+              className="w-32 h-32 rounded-full border-4 border-pink-200 shadow-lg object-cover mb-2"
+              width={128}
+              height={128}
+              priority
+            />
             <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2">
-              Hey, I'm <ColourfulText text="Eldon" />!
+              Hey, I&apos;m <ColourfulText text="Eldon" />!
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-2">
               I build digital things for fun, for work, and sometimes just to see what happens. If you want to collaborate, chat, or send me a meme, hit me up!
@@ -123,7 +131,7 @@ export default function Home() {
                 className="border-2 border-blue-500 bg-blue-500 hover:bg-blue-600 text-white font-semibold shadow transition focus:outline-none focus:ring-2 focus:ring-blue-300"
                 type="button"
               >
-                Let's talk
+                Let&apos;s talk
               </Button>
             </div>
           </div>
@@ -180,7 +188,7 @@ export default function Home() {
               </div>
               {/* Right: Image placeholder */}
               <div className="flex-1 flex items-center justify-center w-full h-full relative min-h-[180px]">
-                <img
+                <Image
                   src={project.image}
                   alt={
                     project.title === 'Giftr' ? 'Elmo celebrating for Giftr project' :
@@ -190,6 +198,8 @@ export default function Home() {
                   }
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  fill
+                  unoptimized={project.image.startsWith('http')}
                 />
               </div>
             </motion.div>

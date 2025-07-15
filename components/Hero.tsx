@@ -16,7 +16,7 @@ export default function Hero() {
             I build things that solve problems, waste time, or both.
           </h1>
           <p className="text-lg text-gray-600 mt-4 max-w-xl">
-            Here's some of it. Scroll down if you're curious. Or bored. Either works.
+            Here&apos;s some of it. Scroll down if you&apos;re curious. Or bored. Either works.
           </p>
           <button
             onClick={scrollToSection}

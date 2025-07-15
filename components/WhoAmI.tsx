@@ -11,13 +11,13 @@ const whoAmICards = [
   {
     title: "Work",
     image: "/images/IMG_5632.JPG",
-    desc: "Worked for big and small companies, from startups to large corporations. I've built products, teams, and digital experiences.",
+    desc: "Worked for big and small companies, from startups to large corporations. I&apos;ve built products, teams, and digital experiences.",
     size: "col-span-1 row-span-1",
   },
   {
     title: "Team",
     image: "https://tenor.com/view/cloudvmink-college-basketball-dancing-gif-25411138.gif",
-    desc: "Nothing beats working with a great team. I've been lucky to work with some amazing people.",
+    desc: "Nothing beats working with a great team. I&apos;ve been lucky to work with some amazing people.",
     size: "col-span-1 row-span-1",
   },
   {

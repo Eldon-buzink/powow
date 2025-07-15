@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import Image from 'next/image'
 
 interface StoryPageProps {
   params: {
@@ -61,10 +62,13 @@ export default function StoryPage({ params }: StoryPageProps) {
           ))}
         </div>
         {story.image && (
-          <img
+          <Image
             src={story.image}
             alt={story.title}
             className="w-full h-64 object-cover rounded-lg mb-8"
+            width={800}
+            height={256}
+            unoptimized={story.image.startsWith('http')}
           />
         )}
       </div>
