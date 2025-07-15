@@ -34,11 +34,11 @@ const projects = [
 ];
 
 const grayscaleLogos = [
-  "/images/Grayscale Adidas Logo",
-  "/images/Grayscale Coolblue Logo",
-  "/images/Grayscale DPG Media Logo",
-  "/images/Grayscale Uber Logo",
-  "/images/Grayscale VanMoof Logo",
+  "/images/adidas.png",
+  "/images/coolblue.png",
+  "/images/dpg_media.png",
+  "/images/uber.png",
+  "/images/vanmoof.png",
 ];
 
 export default function Home() {
