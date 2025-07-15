@@ -8,7 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
-export const Button = ({ className, children, ...props }: ButtonProps) => {
+export const Button = (props: ButtonProps) => {
   const [scope, animate] = useAnimate();
 
   const animateLoading = async () => {
@@ -69,15 +69,8 @@ export const Button = ({ className, children, ...props }: ButtonProps) => {
     await animateSuccess();
   };
 
-  const {
-    onDrag,
-    onDragStart,
-    onDragEnd,
-    onAnimationStart,
-    onAnimationEnd,
-    ...filteredButtonProps
-  } = props;
-
+  // Only pass allowed props to <motion.button />
+  // Use props.className and props.children directly
   return (
     <motion.button
       layout
@@ -85,15 +78,17 @@ export const Button = ({ className, children, ...props }: ButtonProps) => {
       ref={scope}
       className={cn(
         "flex min-w-[120px] cursor-pointer items-center justify-center gap-2 rounded-full px-4 py-2 font-medium text-white ring-offset-2 transition duration-200 dark:ring-offset-black",
-        className,
+        props.className,
       )}
-      {...filteredButtonProps}
+      disabled={props.disabled}
+      type={props.type}
+      style={props.style}
       onClick={handleClick}
     >
       <motion.div layout className="flex items-center gap-2">
         <Loader />
         <CheckIcon />
-        <motion.span layout>{children}</motion.span>
+        <motion.span layout>{props.children}</motion.span>
       </motion.div>
     </motion.button>
   );
