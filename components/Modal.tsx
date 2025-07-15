@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import React from "react";
 
 interface ModalProps {
   isOpen: boolean
@@ -10,7 +10,7 @@ interface ModalProps {
 }
 
 export default function Modal({ isOpen, onClose, title, children }: ModalProps) {
-  useEffect(() => {
+  React.useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         onClose()

@@ -1,5 +1,5 @@
 import React from "react";
-import { FaEnvelope, FaWhatsapp, FaLinkedin } from "react-icons/fa";
+import { FaEnvelope, FaWhatsapp, FaLinkedin, FaGithub } from "react-icons/fa";
 
 export default function Contact() {
   return (
@@ -16,7 +16,7 @@ export default function Contact() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
           <a
-            href="mailto:your@email.com"
+            href="mailto:e.buzink@gmail.com"
             className="flex items-center gap-2 px-6 py-3 rounded-full bg-pink-100 text-pink-700 font-semibold shadow hover:bg-pink-200 transition border border-pink-200 w-full sm:w-auto justify-center"
             target="_blank"
             rel="noopener noreferrer"
@@ -24,7 +24,7 @@ export default function Contact() {
             <FaEnvelope className="text-xl" /> Email
           </a>
           <a
-            href="https://wa.me/1234567890"
+            href="https://wa.me/31681156915"
             className="flex items-center gap-2 px-6 py-3 rounded-full bg-green-100 text-green-700 font-semibold shadow hover:bg-green-200 transition border border-green-200 w-full sm:w-auto justify-center"
             target="_blank"
             rel="noopener noreferrer"
@@ -32,7 +32,7 @@ export default function Contact() {
             <FaWhatsapp className="text-xl" /> WhatsApp
           </a>
           <a
-            href="https://linkedin.com/in/yourprofile"
+            href="https://www.linkedin.com/in/eldonbuzink/"
             className="flex items-center gap-2 px-6 py-3 rounded-full bg-blue-100 text-blue-700 font-semibold shadow hover:bg-blue-200 transition border border-blue-200 w-full sm:w-auto justify-center"
             target="_blank"
             rel="noopener noreferrer"

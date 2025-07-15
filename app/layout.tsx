@@ -7,8 +7,8 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Powow - Your Platform',
-  description: 'A modern platform for sharing stories and projects',
+  title: 'Powow - Eldon Buzink',
+  description: 'Digital product builder, side project lover, and anything to make people happy!',
 }
 
 export default function RootLayout({

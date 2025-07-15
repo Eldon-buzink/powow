@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import { ColourfulText } from "./ui/ColourfulText";
 
 const whoAmICards = [
   {

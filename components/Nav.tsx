@@ -1,14 +1,11 @@
 'use client'
 
 import React from "react"
-import Link from 'next/link'
-import { useState } from 'react'
 import { Button } from "./ui/stateful-button"
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 
 export default function Nav() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   // Scroll to contact section
   const handleLetsTalk = () => {

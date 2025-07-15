@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import React from "react";
-import { motion, AnimatePresence, useAnimate } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
@@ -71,11 +71,6 @@ export const Button = ({ className, children, ...props }: ButtonProps) => {
 
   const {
     onClick,
-    onDrag,
-    onDragStart,
-    onDragEnd,
-    onAnimationStart,
-    onAnimationEnd,
     ...buttonProps
   } = props;
 

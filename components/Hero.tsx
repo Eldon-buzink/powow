@@ -1,7 +1,6 @@
 "use client";
 
 import { BackgroundGradientAnimation } from "./ui/BackgroundGradientAnimation";
-import { motion } from "framer-motion";
 
 export default function Hero() {
   const scrollToSection = () => {
