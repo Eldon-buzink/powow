@@ -3,18 +3,15 @@
 import React from "react";
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { BackgroundGradient } from "@/components/ui/BackgroundGradient";
-import WhoAmI from "@/components/WhoAmI";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import confetti from "canvas-confetti";
 import { ColourfulText } from "@/components/ui/ColourfulText";
-import { BackgroundLines } from "@/components/ui/BackgroundLines";
 import { BackgroundGradientAnimation } from "@/components/ui/BackgroundGradientAnimation";
 import WhatIDo from "@/components/WhatIDo";
 import Contact from "@/components/Contact";
 import LogoCarousel from "@/components/LogoCarousel";
 import { Button } from "@/components/ui/stateful-button";
 import Head from 'next/head';
+import WhoAmI from "@/components/WhoAmI";
 
 const projects = [
   {

@@ -1,5 +1,5 @@
 import React from "react";
-import { FaEnvelope, FaWhatsapp, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaEnvelope, FaWhatsapp, FaLinkedin } from "react-icons/fa";
 
 export default function Contact() {
   return (

@@ -70,7 +70,6 @@ export const Button = ({ className, children, ...props }: ButtonProps) => {
   };
 
   const {
-    onClick,
     ...buttonProps
   } = props;
 
