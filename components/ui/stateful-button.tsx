@@ -70,7 +70,12 @@ export const Button = ({ className, children, ...props }: ButtonProps) => {
   };
 
   const {
-    ...buttonProps
+    onDrag,
+    onDragStart,
+    onDragEnd,
+    onAnimationStart,
+    onAnimationEnd,
+    ...filteredButtonProps
   } = props;
 
   return (
@@ -82,7 +87,7 @@ export const Button = ({ className, children, ...props }: ButtonProps) => {
         "flex min-w-[120px] cursor-pointer items-center justify-center gap-2 rounded-full px-4 py-2 font-medium text-white ring-offset-2 transition duration-200 dark:ring-offset-black",
         className,
       )}
-      {...buttonProps}
+      {...filteredButtonProps}
       onClick={handleClick}
     >
       <motion.div layout className="flex items-center gap-2">
