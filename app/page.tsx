@@ -67,7 +67,7 @@ export default function Home() {
   };
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Head>
         <title>Powow - Eldon Buzink</title>
         <meta name="description" content="Digital product builder, side project lover, and anything to make people happy!" />
@@ -139,15 +139,15 @@ export default function Home() {
       </BackgroundGradientAnimation>
 
       {/* WHO AM I SECTION */}
-      <div ref={whoAmIRef} className="w-full flex justify-center my-12">
-        <div className="w-full max-w-5xl mx-auto rounded-3xl px-4">
+      <div ref={whoAmIRef} className="w-full flex justify-center my-12 px-4">
+        <div className="w-full max-w-5xl mx-auto rounded-3xl">
           <WhoAmI />
         </div>
       </div>
 
       {/* WHAT I DO SECTION */}
-      <div ref={whatIDoRef} className="w-full flex justify-center mb-0">
-        <div className="w-full max-w-5xl mx-auto rounded-3xl px-4">
+      <div ref={whatIDoRef} className="w-full flex justify-center mb-0 px-4">
+        <div className="w-full max-w-5xl mx-auto rounded-3xl">
           <WhatIDo />
         </div>
       </div>
@@ -211,9 +211,9 @@ export default function Home() {
       </section>
 
       {/* CONTACT SECTION */}
-      <div ref={contactRef} className="w-full flex justify-center my-12">
+      <div ref={contactRef} className="w-full flex justify-center my-12 px-4">
         <Contact />
       </div>
-    </>
+    </div>
   );
 } 

@@ -5,27 +5,25 @@ import { motion } from "framer-motion";
 // <LogoCarousel logos={[logo1, logo2, logo3, logo4, logo5]} />
 // The component will repeat the array internally for seamless effect.
 
-const LOGO_WIDTH = 120; // px (w-30)
-const GAP = 32; // px (gap-8)
-const ANIMATION_DURATION = 12; // seconds for one full loop
-
 export default function LogoCarousel({
   logos = Array.from({ length: 5 }), // 5 placeholder logos by default
 }: {
   logos?: any[];
 }) {
   const setLength = logos.length;
+  const LOGO_WIDTH = 120; // px (w-30)
+  const GAP = 32; // px (gap-8)
+  const ANIMATION_DURATION = 12; // seconds for one full loop
   const CAROUSEL_WIDTH = setLength * LOGO_WIDTH + (setLength - 1) * GAP;
   // Repeat the logos 3 times for seamless effect
   const repeatedLogos = [...logos, ...logos, ...logos];
 
   return (
-    <section className="w-full flex flex-col items-center mt-4 mb-20">
+    <section className="w-full flex flex-col items-center mt-4 mb-20 px-4">
       <div
-        className="mx-auto"
+        className="mx-auto w-full max-w-6xl"
         style={{
           maxWidth: `${CAROUSEL_WIDTH}px`,
-          width: "100%",
         }}
       >
         <h3 className="text-sm font-semibold text-gray-400 mb-2 text-center tracking-wide uppercase">For companies like</h3>
@@ -48,7 +46,7 @@ export default function LogoCarousel({
               {repeatedLogos.map((logo, i) => (
                 <div
                   key={i}
-                  className="w-30 h-16 flex items-center justify-center"
+                  className="w-30 h-16 flex items-center justify-center flex-shrink-0"
                 >
                   {/* If logo is a JSX element, render it; otherwise, render placeholder */}
                   {logo && React.isValidElement(logo) ? (
