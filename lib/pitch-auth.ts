@@ -1,31 +1,44 @@
 import { createHmac, timingSafeEqual } from 'crypto'
 import { cookies } from 'next/headers'
 
-export const PITCH_COOKIE = 'pitch_bybar'
-
-// The cookie holds an HMAC of the password, so it can't be forged without knowing it
-function sessionValue(password: string) {
-  return createHmac('sha256', password).update('by-bar-pitch').digest('hex')
-}
-
 function safeEqual(a: string, b: string) {
   const bufA = Buffer.from(a)
   const bufB = Buffer.from(b)
   return bufA.length === bufB.length && timingSafeEqual(bufA, bufB)
 }
 
-export function checkPassword(input: string) {
-  const password = process.env.PITCH_BYBAR_PASSWORD
-  return Boolean(password) && safeEqual(input.trim(), password!)
+/**
+ * Shared-password gate for a private pitch page. The cookie holds an HMAC of the
+ * password, so it can't be forged without knowing it, and rotating the env var
+ * invalidates every existing session.
+ */
+export function createPitchAuth({ cookie, envVar, salt }: { cookie: string; envVar: string; salt: string }) {
+  const password = () => process.env[envVar]
+  const sessionValue = (pw: string) => createHmac('sha256', pw).update(salt).digest('hex')
+
+  return {
+    cookie,
+    checkPassword(input: string) {
+      const pw = password()
+      return Boolean(pw) && safeEqual(input.trim(), pw!)
+    },
+    createSession() {
+      return sessionValue(password()!)
+    },
+    isAuthenticated() {
+      const pw = password()
+      const value = cookies().get(cookie)?.value
+      if (!pw || !value) return false
+      return safeEqual(value, sessionValue(pw))
+    },
+  }
 }
 
-export function createSession() {
-  return sessionValue(process.env.PITCH_BYBAR_PASSWORD!)
-}
+const byBar = createPitchAuth({ cookie: 'pitch_bybar', envVar: 'PITCH_BYBAR_PASSWORD', salt: 'by-bar-pitch' })
 
-export function isAuthenticated() {
-  const password = process.env.PITCH_BYBAR_PASSWORD
-  const cookie = cookies().get(PITCH_COOKIE)?.value
-  if (!password || !cookie) return false
-  return safeEqual(cookie, sessionValue(password))
-}
+export const PITCH_COOKIE = byBar.cookie
+export const checkPassword = byBar.checkPassword
+export const createSession = byBar.createSession
+export const isAuthenticated = byBar.isAuthenticated
+
+export const fundaAuth = createPitchAuth({ cookie: 'pitch_funda', envVar: 'PITCH_FUNDA_PASSWORD', salt: 'funda-plan' })
