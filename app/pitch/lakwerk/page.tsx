@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 }
 
 // lakwerk.com uses Montserrat for body copy, so the page feels familiar
-const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'] })
+const montserrat = Montserrat({ subsets: ['latin'], display: 'swap' })
 
 export default function LakwerkPlanPage() {
   const authed = lakwerkAuth.isAuthenticated()
