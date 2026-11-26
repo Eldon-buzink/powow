@@ -42,3 +42,5 @@ export const createSession = byBar.createSession
 export const isAuthenticated = byBar.isAuthenticated
 
 export const fundaAuth = createPitchAuth({ cookie: 'pitch_funda', envVar: 'PITCH_FUNDA_PASSWORD', salt: 'funda-plan' })
+
+export const lakwerkAuth = createPitchAuth({ cookie: 'pitch_lakwerk', envVar: 'PITCH_LAKWERK_PASSWORD', salt: 'lakwerk-plan' })
